@@ -15,7 +15,10 @@ Route::get('/home', function() {
      return view('template.index');
 });
 
+//user
 Route::get('/user', 'UserController@UserList' );
+Route::get('/create-user', 'UserController@CreateUser' );
+//end user
 
 //product
 Route::get('/product', 'ProductController@ProductList' );
