@@ -17,6 +17,10 @@ Route::get('/home', function() {
 
 Route::get('/user', 'UserController@UserList' );
 
+//product
+Route::get('/product', 'ProductController@ProductList' );
+//end product
+
 Route::get('/', function() {
      return view('welcome');
 });
