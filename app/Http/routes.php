@@ -24,6 +24,4 @@ Route::get('/create-user', 'UserController@CreateUser' );
 Route::get('/product', 'ProductController@ProductList' );
 //end product
 
-Route::get('/', function() {
-     return view('welcome');
-});
+Route::get('/','ProductController@ProductList' );
