@@ -54,13 +54,13 @@ return [
 
         'mysql' => [
             'driver' => 'mysql',
-            'host' => env('DB_HOST', 'localhost'),
+            'host' => env('DB_HOST', 'mysql.hostinger.vn'),
             'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'forge'),
-            'username' => env('DB_USERNAME', 'forge'),
-            'password' => env('DB_PASSWORD', ''),
+            'database' => env('DB_DATABASE', 'u337295388_hugo'),
+            'username' => env('DB_USERNAME', 'u337295388_hugo'),
+            'password' => env('DB_PASSWORD', 'hienHien291991'),
             'charset' => 'utf8',
-            'collation' => 'utf8_unicode_ci',
+            'collation' => 'utf8_general_ci',
             'prefix' => '',
             'strict' => false,
             'engine' => null,

@@ -2,18 +2,43 @@
 
 namespace App\Http\Controllers;
 
+use App\Users;
+
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
 class UserController extends Controller
 {
-    public function UserList(){
-        $data= array(array('name'=>'Hien'));
-        return view('user.v_user_list')->with('userlist',$data);
+    public function Login(){
+        return view('user.v_user_signin')->with('userlist');
     }
-    public function CreateUser(){
-        return $this->crypt_apr1_md5('hienhien');
+
+    public function SignIn(Request $request){
+        $user = new Users;
+         $user->username = $request->username;
+         $user->password = $this->crypt_apr1_md5($request->password);
+          if(
+              Users::where('username', $request->username)
+                    ->where('password', $this->crypt_apr1_md5($request->password))
+          )
+            {
+                 return  'ok';
+            }
+        return 'false';
+    }
+    public function SignUp(Request $request){
+        $user = new Users;
+         $user->username = $request->username;
+         $user->email = $request->email;
+         $user->password = $this->crypt_apr1_md5($request->password);
+         $user->remember_token = $request->_token;
+         if(Users::where('username', $request->username)->first() 
+            && Users::where('email', $request->email)->first())
+            {
+                $user->save();
+            }
+        return redirect('/');
     }
     
     private function crypt_apr1_md5($plainpasswd)

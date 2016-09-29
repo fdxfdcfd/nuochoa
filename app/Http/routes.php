@@ -16,8 +16,10 @@ Route::get('/home', function() {
 });
 
 //user
-Route::get('/user', 'UserController@UserList' );
-Route::get('/create-user', 'UserController@CreateUser' );
+Route::get('/user', 'UserController@Login' );
+Route::post('/signin', 'UserController@Signin' );
+Route::post('/signup', 'UserController@Signup' );
+
 //end user
 
 //product
